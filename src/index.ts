@@ -1,9 +1,15 @@
 import "dotenv/config";
 import { Client } from "discord.js";
+const express = require("express");
 
 const client = new Client({
   intents: ["Guilds", "GuildMessages", "GuildMembers", "MessageContent"],
 });
+
+const app = express();
+app.listen(3090, () => {
+  console.log("Server is running on port 3090");
+})
 
 client.on("ready", (c) => {
   console.log(`${c.user.username} is Active👍`);
